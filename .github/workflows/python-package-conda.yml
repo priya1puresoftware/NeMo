@@ -36,4 +36,6 @@ jobs:
         pip3 install pandas
         pip3 install frozendict
         pip3 install braceexpand
+        pip3 install inflect 
+        pip3 install webdataset
         pytest
