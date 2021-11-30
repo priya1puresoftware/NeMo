@@ -41,4 +41,7 @@ jobs:
         pip3 install unidecode
         pip3 install h5py
         pip3 install transformers
+        pip3 install sentencepiece 
+        pip3 install editdistance
+        
         pytest
