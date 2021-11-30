@@ -26,4 +26,5 @@ jobs:
       run: |
         conda install pytest
         pip3 install wrapt
+        pip3 install wget
         pytest
