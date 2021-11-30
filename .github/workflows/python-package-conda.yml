@@ -50,4 +50,5 @@ jobs:
         pip3 install sacrebleu 
         pip3 install Cython
         pip3 install nltk
+        pip3 install jieba
         pytest
