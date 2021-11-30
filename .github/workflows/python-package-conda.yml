@@ -40,4 +40,5 @@ jobs:
         pip3 install webdataset
         pip3 install unidecode
         pip3 install h5py
+        pip3 install transformers
         pytest
