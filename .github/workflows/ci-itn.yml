@@ -1,0 +1,48 @@
+name: CI-ITN
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci-itn:
+    # This line is needed to make sure branch name has keyword *tn* in it
+    if: ${{ contains(github.ref, 'tn') || contains(github.event.pull_request.head.ref, 'tn') }}
+    runs-on: ubuntu-latest
+
+    container:
+      image: conda/miniconda3
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update Conda
+      run: |
+        conda install conda-build -y
+        apt-get update && apt-get install -y --reinstall build-essential
+        apt-get install -y make libsndfile1 sox libfreetype6 ffmpeg swig
+    - name: Install test dependencies
+      run:  |
+        # install test requirements
+        pip install -r requirements/requirements_test.txt
+    - name: Install dependencies
+      run: |
+        # Install NeMo
+        pip install -e ".[asr,text_processing]"
+        # Install ITN requirements
+        /bin/bash nemo_text_processing/setup.sh
+    - name: Prepare Cache Dir
+      run: |
+        # Create cache dir
+        mkdir -p ~/tn_cache/
+    - name: Cache graphs
+      uses: actions/cache@v2
+      with:
+        path: ~/tn_cache
+        key: ${{ runner.os }}-${{ hashFiles('setup.py') }}
+        restore-keys: |
+          ${{ runner.os }}-
+    - name: ITN Tests
+      run: |
+        cd tests/nemo_text_processing
+        pytest . -s -v --cpu --tn_cache_dir "~/tn_cache"
