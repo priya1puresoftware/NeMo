@@ -34,4 +34,6 @@ jobs:
         pip3 install hydra-core
         pip3 install pytorch_lightning
         pip3 install pandas
+        pip3 installfrozendict
+        pip3 install braceexpand
         pytest
