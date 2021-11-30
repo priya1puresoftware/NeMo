@@ -45,5 +45,7 @@ jobs:
         pip3 install editdistance
         pip3 install rapidfuzz 
         pip3 install pesq
+        pip3 install youtokentome 
+        pip3 install pystoi
         
         pytest
