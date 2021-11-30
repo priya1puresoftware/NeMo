@@ -38,4 +38,6 @@ jobs:
         pip3 install braceexpand
         pip3 install inflect 
         pip3 install webdataset
+        pip3 install unidecode
+        pip3 install h5py
         pytest
