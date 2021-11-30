@@ -52,4 +52,5 @@ jobs:
         pip3 install nltk
         pip3 install jieba
         pip3 install opencc
+        pip3 install pangu
         pytest
