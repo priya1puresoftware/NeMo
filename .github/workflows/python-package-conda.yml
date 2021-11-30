@@ -30,5 +30,6 @@ jobs:
         pip3 install torch
         pip3 install onnx
         pip3 install omegaconf
+        pip3 install librosa
         pip3 install pytorch_lightning
         pytest
