@@ -47,5 +47,6 @@ jobs:
         pip3 install pesq
         pip3 install youtokentome 
         pip3 install pystoi
-        sacrebleu
+        pip3 install sacrebleu 
+        pip3 install Cython
         pytest
