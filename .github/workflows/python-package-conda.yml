@@ -28,4 +28,5 @@ jobs:
         pip3 install wrapt
         pip3 install wget
         pip3 install torch
+        pip3 install onnx
         pytest
